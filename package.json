@@ -1,0 +1,24 @@
+{
+  "name": "gregors-group-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "mongodb": "^2.2.22"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elgrogz/Gregors-group-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elgrogz/Gregors-group-project/issues"
+  },
+  "homepage": "https://github.com/Elgrogz/Gregors-group-project#readme"
+}
