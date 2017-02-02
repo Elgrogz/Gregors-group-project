@@ -1,15 +1,10 @@
-{
-  "name": "gregors-group-project",
+  "name": "rocket_launch_project",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "dependencies": {
-    "mongodb": "^2.2.22"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
+    "test": "node_modules/.bin/mocha client/src/models/specs",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/Elgrogz/Gregors-group-project/issues"
   },
-  "homepage": "https://github.com/Elgrogz/Gregors-group-project#readme"
-}
+  "homepage": "https://github.com/Elgrogz/Gregors-group-project#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "webpack": "^2.2.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
