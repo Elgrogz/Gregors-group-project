@@ -26,3 +26,5 @@ MapWrapper.prototype ={
     }.bind(this);
   }
 }
+
+module.exports = MapWrapper;
