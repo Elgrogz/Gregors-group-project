@@ -3,6 +3,7 @@ var MapWrapper = require('../models/mapWrapper');
 
 var UI = function(){
   this.renderMap();
+  this.launches = new Launches();
 }
 
 UI.prototype = {
