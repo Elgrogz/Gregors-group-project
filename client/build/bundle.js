@@ -119,7 +119,7 @@ Launches.prototype = {
     request.send();
   },
   populateLaunches: function(results) {
-      var lists = [];
+      var launches = [];
       for (var result of results) {
           var launch = new Launch(result);
           launches.push(launch);
