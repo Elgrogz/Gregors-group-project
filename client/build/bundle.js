@@ -42,6 +42,19 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var UI = __webpack_require__(1);
+	
+	var app = function() {
+	  new UI();
+	};
+	
+	window.onload = app;
+
+
+/***/ },
+/* 1 */
 /***/ function(module, exports) {
 
 
