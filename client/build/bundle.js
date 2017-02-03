@@ -128,7 +128,7 @@ Launches.prototype = {
         launchDetails.push(launchObject);
       });
     }
-    console.log(launchDetails);
+    // console.log(launchDetails);
     return launchDetails;
   }
     // all: function(callback) {
