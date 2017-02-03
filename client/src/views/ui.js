@@ -8,8 +8,8 @@ var UI = function(){
 UI.prototype = {
   renderMap: function () {
     var mapDiv = document.querySelector('#map');
-    var center = {lat:51.481703, lng:-0.191075};
-      var map = new MapWrapper(mapDiv, center, 10);
+    var center = {lat:20, lng:0};
+      var map = new MapWrapper(mapDiv, center, 2);
       console.log(map)
     }
   }
