@@ -8,7 +8,7 @@ var Launches = function() {
     var jsonString = this.responseText;
     launches = JSON.parse(jsonString);
     console.log(launches);
-   // self.populateList(launches);
+   // self.populateLaunches(launches);
   });
 };
 
@@ -18,9 +18,29 @@ Launches.prototype = {
     request.open("GET",url);
     request.onload = callback;
     request.send();
-  }
+  },
+  populateLaunches: function(results) {
+      var lists = [];
+      for (var result of results) {
+          var launch = new Launch(result);
+          launches.push(launch);
+          console.log(launches);
+      }
+      return launches;
+    },
+    all: function(callback) {
+        var self = this;
+        this.makeRequest('http://localhost:3000/api/launches', 'GET', function() {
+            if (this.status !== 200) {
+                return;
+            }
+            var jsonString = this.responseText;
+            var results = JSON.parse(jsonString);
 
-
+            var launches = self.populateLaunches(results);
+            callback(launches);
+        });
+    }
 
 }
 
