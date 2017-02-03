@@ -55,9 +55,58 @@
 
 /***/ },
 /* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Launches = __webpack_require__(2)
+	var MapWrapper = __webpack_require__(3)
+	
+	var UI = function(){
+	
+	}
+	
+	
+	
+	
+	module.exports = UI;
+
+/***/ },
+/* 2 */
 /***/ function(module, exports) {
 
 
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	var MapWrapper = function (container, coords, zoom) {
+	  this.googleMap = new google.maps.Map(container, {
+	    center: coords,
+	    zoom: zoom
+	  })
+	}
+	
+	MapWrapper.prototype ={
+	  addMarker: function(coords, contentInfo){
+	    var infoWindow = new google.maps.infoWindow({
+	      content: contentInfo
+	    });
+	    var maker = new google.maps.Marker({
+	      position: coords,
+	      map: this.googleMap,
+	      animation: google.maps.Animation.DROP
+	    });
+	    marker.addListener('click', function (){
+	      infoWindow.open(this.googleMap, marker);
+	    });
+	  },
+	  centreMap: function (button, coords, zoom){
+	    button.onclick = function () {
+	      this.googleMap.setCenter(coords);
+	      this.googleMap.setZoom(zoom);
+	    }.bind(this);
+	  }
+	}
 
 /***/ }
 /******/ ]);
