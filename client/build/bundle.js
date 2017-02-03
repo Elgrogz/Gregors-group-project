@@ -63,28 +63,28 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 3);
-=======
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
->>>>>>> develop
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-<<<<<<< HEAD
 /***/ (function(module, exports, __webpack_require__) {
 
 var Launches = __webpack_require__(1);
 var MapWrapper = __webpack_require__(2);
-var mapDiv = document.querySelector('#map');
-var center = {lat:51.481703, lng:-0.191075};
 
 var UI = function(){
-  this.map = new MapWrapper(mapDiv, center, 10);
+  this.renderMap();
 }
 
-//  
+UI.prototype = {
+  renderMap: function () {
+    var mapDiv = document.querySelector('#map');
+    var center = {lat:51.481703, lng:-0.191075};
+      var map = new MapWrapper(mapDiv, center, 10);
+      console.log(map)
+    }
+  }
 
 
 
@@ -133,14 +133,6 @@ module.exports = MapWrapper;
 
 /***/ }),
 /* 3 */
-=======
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 1 */
->>>>>>> develop
 /***/ (function(module, exports, __webpack_require__) {
 
 var UI = __webpack_require__(0);
