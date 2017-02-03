@@ -1,5 +1,5 @@
-var Launch = function(options) {
-    this.launch = options.name;
+var Launch = function(position) {
+    this.position = position;
 }
 
 module.exports = Launch;

@@ -1,15 +1,18 @@
+var Launch = require('./launch');
 var launches;
-var launchDetails = [];
+var ourLaunchAPI = [];
 
 var Launches = function() {
   var url = "https://launchlibrary.net/1.1/launch";
   var self = this;
+  this.launchDetails = [];
   this.makeRequest(url, function() {
     if (this.status !==200) return;
     var jsonString = this.responseText;
     launches = JSON.parse(jsonString);
     self.populateLaunches(launches);
   });
+  return ourLaunchAPI;
 };
 
 Launches.prototype = {
@@ -21,7 +24,7 @@ Launches.prototype = {
   },
   populateLaunches: function(rocketLaunch) {
     var populatedLaunches = rocketLaunch.launches;
-    
+    var self = this;
     for (var i = 0; i < populatedLaunches.length; i++) {
       var id = populatedLaunches[i].id;
       var url = 'https://launchlibrary.net/1.1/launch/'+ id;
@@ -29,12 +32,29 @@ Launches.prototype = {
         if (this.status !==200) return;
         var jsonString = this.responseText;
         launchObject = JSON.parse(jsonString);
-        launchDetails.push(launchObject);
+        self.launchDetails.push(launchObject);
+        if(self.launchDetails.length === 10){
+          self.makeLaunch()
+        }
       });
     }
-    console.log(launchDetails);
-    return launchDetails;
+
+  },
+
+  makeLaunch: function(){
+    for (var launch of this.launchDetails){
+      var position = {lat: "", lng: ""};
+      position.lat = launch.launches[0].location.pads[0].latitude;
+      position.lng =launch.launches[0].location.pads[0].longitude;
+      var individualLaunch = new Launch(position);
+      // console.log(individualLaunch);
+        ourLaunchAPI.push(individualLaunch);
+    }
+    console.log(ourLaunchAPI);
+ 
   }
+
+
     // all: function(callback) {
     //     var self = this;
     //     this.makeRequest('http://localhost:3000/api/launches', 'GET', function() {
