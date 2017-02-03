@@ -1,4 +1,5 @@
 var launches;
+var launchDetails = [];
 
 var Launches = function() {
   var url = "https://launchlibrary.net/1.1/launch";
@@ -7,7 +8,6 @@ var Launches = function() {
     if (this.status !==200) return;
     var jsonString = this.responseText;
     launches = JSON.parse(jsonString);
-    console.log(launches);
     self.populateLaunches(launches);
   });
 };
@@ -19,15 +19,22 @@ Launches.prototype = {
     request.onload = callback;
     request.send();
   },
-  populateLaunches: function(launches) {
-    var populatedLaunches = launches.launches;
-    console.log(populatedLaunches);
-    // for (var launch of launches) {
-    //   this.makeRequest('https://launchlibrary.net/1.1/launch/'+, 'GET', function() {
-    //   launches.push(launch);
-    // }
-    // return launches;
+  populateLaunches: function(rocketLaunch) {
+    var populatedLaunches = rocketLaunch.launches;
+    
+    for (var i = 0; i < populatedLaunches.length; i++) {
+      var id = populatedLaunches[i].id;
+      var url = 'https://launchlibrary.net/1.1/launch/'+ id;
+      this.makeRequest(url, function() {
+        if (this.status !==200) return;
+        var jsonString = this.responseText;
+        launchObject = JSON.parse(jsonString);
+        launchDetails.push(launchObject);
+      });
     }
+    console.log(launchDetails);
+    return launchDetails;
+  }
     // all: function(callback) {
     //     var self = this;
     //     this.makeRequest('http://localhost:3000/api/launches', 'GET', function() {
