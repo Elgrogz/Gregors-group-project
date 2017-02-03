@@ -8,7 +8,7 @@ var Launches = function() {
     var jsonString = this.responseText;
     launches = JSON.parse(jsonString);
     console.log(launches);
-   // self.populateLaunches(launches);
+    self.populateLaunches(launches);
   });
 };
 
@@ -19,28 +19,28 @@ Launches.prototype = {
     request.onload = callback;
     request.send();
   },
-  populateLaunches: function(results) {
-      var launches = [];
-      for (var result of results) {
-          var launch = new Launch(result);
-          launches.push(launch);
-          console.log(launches);
-      }
-      return launches;
-    },
-    all: function(callback) {
-        var self = this;
-        this.makeRequest('http://localhost:3000/api/launches', 'GET', function() {
-            if (this.status !== 200) {
-                return;
-            }
-            var jsonString = this.responseText;
-            var results = JSON.parse(jsonString);
-
-            var launches = self.populateLaunches(results);
-            callback(launches);
-        });
+  populateLaunches: function(launches) {
+    var populatedLaunches = launches.launches;
+    console.log(populatedLaunches);
+    // for (var launch of launches) {
+    //   this.makeRequest('https://launchlibrary.net/1.1/launch/'+, 'GET', function() {
+    //   launches.push(launch);
+    // }
+    // return launches;
     }
+    // all: function(callback) {
+    //     var self = this;
+    //     this.makeRequest('http://localhost:3000/api/launches', 'GET', function() {
+    //         if (this.status !== 200) {
+    //             return;
+    //         }
+    //         var jsonString = this.responseText;
+    //         var results = JSON.parse(jsonString);
+
+    //         var launches = self.populateLaunches(launches);
+    //         callback(launches);
+    //     });
+    // }
 
 }
 
