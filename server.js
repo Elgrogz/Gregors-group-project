@@ -1,15 +1,11 @@
 //gg
+var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-var path = require('path');
 
-// app.use(require('./controllers'));
-
-app.get('/', function (req, res) {
- res.sendFile(path.join(__dirname + '/client/build/main.html'));
-});
+app.use(require('./controllers'));
 
 app.use(express.static('client/build'));
 

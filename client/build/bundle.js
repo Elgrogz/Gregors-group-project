@@ -63,11 +63,16 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 3);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+>>>>>>> develop
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+<<<<<<< HEAD
 /***/ (function(module, exports, __webpack_require__) {
 
 var Launches = __webpack_require__(1);
@@ -128,6 +133,14 @@ module.exports = MapWrapper;
 
 /***/ }),
 /* 3 */
+=======
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 1 */
+>>>>>>> develop
 /***/ (function(module, exports, __webpack_require__) {
 
 var UI = __webpack_require__(0);
