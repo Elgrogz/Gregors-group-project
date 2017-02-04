@@ -22,6 +22,7 @@ Launches.prototype = {
     request.onload = callback;
     request.send();
   },
+
   populateLaunches: function(rocketLaunch) {
     var populatedLaunches = rocketLaunch.launches;
     var self = this;
@@ -46,11 +47,25 @@ Launches.prototype = {
       var position = {lat: "", lng: ""};
       position.lat = launch.launches[0].location.pads[0].latitude;
       position.lng =launch.launches[0].location.pads[0].longitude;
-      var individualLaunch = new Launch(position);
+
+      var rocket = {rocketName: "", wiki: "",image: ""};
+      rocket.rocketName = launch.launches[0].rocket.name;
+      rocket.wiki = launch.launches[0].rocket.wikiURL;
+      rocket.image = launch.launches[0].rocket.imageURL;
+
+      // var mission = {missionName: ""};
+      // if (launch.launches[0].missions[0].name === null) {
+      //   mission.missionName = "";
+      // } else {
+      //     console.log(launch.launches[0].missions[0].name)
+      //     mission.missionName = launch.launches[0].missions[0].name;
+      //   }
+
+      var individualLaunch = new Launch(position, rocket);
       // console.log(individualLaunch);
         ourLaunchAPI.push(individualLaunch);
     }
-    console.log(ourLaunchAPI);
+    // console.log(ourLaunchAPI);
  
   }
 
