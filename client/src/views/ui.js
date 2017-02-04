@@ -11,7 +11,8 @@ UI.prototype = {
     var mapDiv = document.querySelector('#map');
     var center = {lat:20, lng:0};
       var map = new MapWrapper(mapDiv, center, 2);
-      console.log(map)
+      console.log(map);
+      map.addMarker(center);
     }
   }
 

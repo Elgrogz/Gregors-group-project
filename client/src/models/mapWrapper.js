@@ -7,10 +7,10 @@ var MapWrapper = function (container, coords, zoom) {
 
 MapWrapper.prototype ={
   addMarker: function(coords, contentInfo){
-    var infoWindow = new google.maps.infoWindow({
-      content: contentInfo
-    });
-    var maker = new google.maps.Marker({
+    // var infoWindow = new google.maps.infoWindow({
+    //   content: contentInfo
+    // });
+    var marker = new google.maps.Marker({
       position: coords,
       map: this.googleMap,
       animation: google.maps.Animation.DROP
