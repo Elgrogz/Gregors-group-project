@@ -12,6 +12,7 @@ var Launches = function() {
     launches = JSON.parse(jsonString);
     self.populateLaunches(launches);
   });
+  // console.log(ourLaunchAPI)
   return ourLaunchAPI;
 };
 
@@ -43,15 +44,12 @@ Launches.prototype = {
 
   makeLaunch: function(){
     for (var launch of this.launchDetails){
-      var position = {lat: "", lng: ""};
+          var position = {lat: "", lng: ""};
       position.lat = launch.launches[0].location.pads[0].latitude;
       position.lng =launch.launches[0].location.pads[0].longitude;
       var individualLaunch = new Launch(position);
-      // console.log(individualLaunch);
         ourLaunchAPI.push(individualLaunch);
-    }
-    console.log(ourLaunchAPI);
- 
+    } 
   }
 
 

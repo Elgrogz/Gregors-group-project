@@ -10,10 +10,18 @@ MapWrapper.prototype ={
     var infoWindow = new google.maps.InfoWindow({
       content: contentInfo
     });
+    
+    var iconRocket = {
+        url: "https://cdn4.iconfinder.com/data/icons/whsr-january-flaticon-set/512/rocket.png", // url
+        scaledSize: new google.maps.Size(30, 30), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    };
     var marker = new google.maps.Marker({
       position: coords,
       map: this.googleMap,
-      animation: google.maps.Animation.DROP
+      animation: google.maps.Animation.DROP,
+      icon: iconRocket
     });
     marker.addListener('click', function (){
       infoWindow.open(this.googleMap, marker);
