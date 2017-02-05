@@ -1,8 +1,9 @@
 var Launch = require('./launch');
 var launches;
 var ourLaunchAPI = [];
+// var arrayCounter = 0;
 
-var Launches = function() {
+var Launches = function(map) {
   var url = "https://launchlibrary.net/1.1/launch";
   var self = this;
   this.launchDetails = [];
@@ -10,10 +11,11 @@ var Launches = function() {
     if (this.status !==200) return;
     var jsonString = this.responseText;
     launches = JSON.parse(jsonString);
-    self.populateLaunches(launches);
+    self.populateLaunches(launches, map);
   });
   return ourLaunchAPI;
 };
+
 
 Launches.prototype = {
   makeRequest: function(url, callback) {
@@ -22,7 +24,7 @@ Launches.prototype = {
     request.onload = callback;
     request.send();
   },
-  populateLaunches: function(rocketLaunch) {
+  populateLaunches: function(rocketLaunch, map) {
     var populatedLaunches = rocketLaunch.launches;
     var self = this;
     for (var i = 0; i < populatedLaunches.length; i++) {
@@ -34,41 +36,37 @@ Launches.prototype = {
         launchObject = JSON.parse(jsonString);
         self.launchDetails.push(launchObject);
         if(self.launchDetails.length === 10){
-          self.makeLaunch()
+          self.makeLaunch(map);
         }
       });
     }
 
   },
 
-  makeLaunch: function(){
+  makeLaunch: function(map){
     for (var launch of this.launchDetails){
       var position = {lat: "", lng: ""};
       position.lat = launch.launches[0].location.pads[0].latitude;
       position.lng =launch.launches[0].location.pads[0].longitude;
-      var individualLaunch = new Launch(position);
-      // console.log(individualLaunch);
+
+      var rocket = {rocketName: "", wikiURL: ""};
+      rocket.rocketName = launch.launches[0].rocket.name;
+      rocket.wikiURL = launch.launches[0].rocket.wikiURL;
+
+      var mission = {missionDesc: ""};
+         if (launch.launches[0].missions[0]) {
+        mission.missionDesc = launch.launches[0].missions[0].description;
+           } else {
+            mission.missionDesc = "No mission data";
+           }
+
+      var individualLaunch = new Launch(position, rocket, mission);
+        map.addMarker(individualLaunch.position, individualLaunch.mission.missionDesc);
         ourLaunchAPI.push(individualLaunch);
     }
-    console.log(ourLaunchAPI);
- 
   }
+};
 
 
-    // all: function(callback) {
-    //     var self = this;
-    //     this.makeRequest('http://localhost:3000/api/launches', 'GET', function() {
-    //         if (this.status !== 200) {
-    //             return;
-    //         }
-    //         var jsonString = this.responseText;
-    //         var results = JSON.parse(jsonString);
-
-    //         var launches = self.populateLaunches(launches);
-    //         callback(launches);
-    //     });
-    // }
-
-}
 
 module.exports = Launches;
