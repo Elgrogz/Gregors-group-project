@@ -24,7 +24,12 @@ Launches.prototype = {
     request.onload = callback;
     request.send();
   },
+<<<<<<< HEAD
   populateLaunches: function(rocketLaunch, map) {
+=======
+
+  populateLaunches: function(rocketLaunch) {
+>>>>>>> 23a2f07a65410dc174fda5397504c2bfd172c65c
     var populatedLaunches = rocketLaunch.launches;
     var self = this;
     for (var i = 0; i < populatedLaunches.length; i++) {
@@ -62,6 +67,7 @@ Launches.prototype = {
 
       var individualLaunch = new Launch(position, rocket, mission);
         map.addMarker(individualLaunch.position, individualLaunch.mission.missionDesc);
+
         ourLaunchAPI.push(individualLaunch);
     }
   }
