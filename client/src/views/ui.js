@@ -1,10 +1,13 @@
 var Launches = require('../models/launches');
 var MapWrapper = require('../models/mapWrapper');
+var CountDown = require('../models/countDown');
 
 
 var UI = function(){
   this.map = this.renderMap();
+  this.countDown = new CountDown();
   this.launches = new Launches(this.map);
+  this.initializeClock(this.countDown);
 }
 
 
@@ -14,8 +17,23 @@ UI.prototype = {
     var center = {lat:20, lng:0};
       var map = new MapWrapper(mapDiv, center, 2);
       return map;
-    }
+    },
 
+    initializeClock: function(countDown){
+      var clock = document.querySelector("#countdown-div");
+      // console.log(nextLaunchTime);
+      var timeinterval = setInterval(function(){
+          var t = countDown.getTimeRemaining();
+          // console.log(t)
+          clock.innerHTML = 'days: ' + t.days + '<br>' +
+                            'hours: '+ t.hours + '<br>' +
+                            'minutes: ' + t.minutes + '<br>' +
+                            'seconds: ' + t.seconds;
+          if(t.total<=0){
+            clearInterval(timeinterval);
+          }
+        },1000);
+      }
 //   addAllMarkers: function(){
 //     for(launch of this.launches){
 //       var pos = launch.position;

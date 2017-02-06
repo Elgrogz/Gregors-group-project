@@ -1,3 +1,9 @@
+
+/** {
+  border: 2px solid black;
+}
+*/
+
 body {
   background-image:url("stars.jpg");
 }
@@ -7,6 +13,7 @@ header {
 }
 
 #title-div {
+  border: 2px solid black;
   width: 50%;
   color: white;
   text-align: center;
@@ -14,6 +21,7 @@ header {
 }
 
 #countdown-div {
+  border: 2px solid black;
   width: 50%;
   color: white;
   text-align: center;
