@@ -1,12 +1,13 @@
 var Launches = require('../models/launches');
 var MapWrapper = require('../models/mapWrapper');
 var CountDown = require('../models/countDown');
+var nextDate = localStorage.getItem('nextLaunchTime')
 
 
 var UI = function(){
 
   this.map = this.renderMap();
-  this.countDown = new CountDown();
+  this.countDown = new CountDown(nextDate);
   this.launches = new Launches(this.map);
   this.initializeClock(this.countDown);
 }

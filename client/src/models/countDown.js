@@ -1,8 +1,8 @@
 var Launches = require('./launches')
 var deadline
 
-var CountDown = function(){
-  this.deadline = '2017-02-21';
+var CountDown = function(date){
+  this.deadline = date;
 
 
 }
