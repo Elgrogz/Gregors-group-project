@@ -2,8 +2,13 @@
   border: 2px solid black;
 }
 
+body {
+  background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTZr-LRtcBflY04xB-rWeaeSZokdWCQsZ0fu1oedUMzSqZ0wW18yg");
+}
+
 header {
   display: flex;
+  background-color: white;
 }
 
 #title-div {

@@ -49,6 +49,8 @@ Launches.prototype = {
 
   makeLaunch: function(map){
     for (var launch of this.launchDetails){
+      console.log(launch.launches[0].windowstart);
+
           var position = {lat: "", lng: ""};
       position.lat = launch.launches[0].location.pads[0].latitude;
       position.lng =launch.launches[0].location.pads[0].longitude;
@@ -70,7 +72,7 @@ Launches.prototype = {
 
       var individualLaunch = new Launch(position, rocket, mission);
         map.addMarker(individualLaunch.position, individualLaunch.mission, individualLaunch.rocket);
-        console.log(individualLaunch.rocket.wikiURL);
+        // console.log(individualLaunch.rocket.wikiURL);
 
         ourLaunchAPI.push(individualLaunch);
     }
