@@ -13,6 +13,8 @@ var Launches = function(map) {
     launches = JSON.parse(jsonString);
     self.populateLaunches(launches, map);
   });
+  var launchAPI = ourLaunchAPI;
+  // console.log(ourLaunchAPI)
   return ourLaunchAPI;
 };
 
@@ -47,7 +49,7 @@ Launches.prototype = {
 
   makeLaunch: function(map){
     for (var launch of this.launchDetails){
-      var position = {lat: "", lng: ""};
+          var position = {lat: "", lng: ""};
       position.lat = launch.launches[0].location.pads[0].latitude;
       position.lng =launch.launches[0].location.pads[0].longitude;
 
@@ -72,9 +74,10 @@ Launches.prototype = {
 
         ourLaunchAPI.push(individualLaunch);
     }
-  }
-};
 
+}
+
+};
 
 
 module.exports = Launches;
