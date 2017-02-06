@@ -89,7 +89,7 @@ Launches.prototype = {
       localStorage.setItem('nextLaunchTime', nextLaunchTime);
 
       console.log(nextLaunchTime);
-    }
+    } 
 
   };
 
