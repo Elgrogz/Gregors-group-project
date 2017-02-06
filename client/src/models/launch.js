@@ -1,8 +1,8 @@
-var Launch = function(position, rocket, mission, launchTime) {
+var Launch = function(position, mission, launchTime, rocket) {
     this.position = position;
-    this.rocket = rocket;
     this.mission = mission;
     this.launchTime = launchTime;
+    this.rocket = rocket;
 
 }
 

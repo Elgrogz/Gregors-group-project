@@ -74,17 +74,18 @@ Launches.prototype = {
         mission.missionType = "No mission type";
       }
 
-      var individualLaunch = new Launch(position, rocket, mission, launchTime);
-      map.addMarker(individualLaunch.position, individualLaunch.mission, individualLaunch.rocket);
-
+      var individualLaunch = new Launch(position, mission, launchTime, rocket);
+      map.addMarker(individualLaunch.position, individualLaunch.mission, individualLaunch.launchTime, individualLaunch.rocket);
         ourLaunchAPI.push(individualLaunch);
+        console.log(individualLaunch)
       }
 
       launchTimes.sort();
       nextLaunchTime = launchTimes[0];
+      localStorage.setItem('nextLaunchTime', nextLaunchTime);
 
       console.log(nextLaunchTime);
-    }
+    } 
 
   };
 
