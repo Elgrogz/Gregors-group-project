@@ -3,7 +3,6 @@ var launches;
 var ourLaunchAPI = [];
 var launchTimes = [];
 var nextLaunchTime;
-// var arrayCounter = 0;
 
 var Launches = function(map) {
   var url = "https://launchlibrary.net/1.1/launch";
@@ -16,8 +15,6 @@ var Launches = function(map) {
     self.populateLaunches(launches, map);
   });
   var launchAPI = ourLaunchAPI;
-  console.log(nextLaunchTime);
-  return ourLaunchAPI;
 };
 
 
@@ -56,7 +53,6 @@ Launches.prototype = {
       var launchTime = {time: ""}
       launchTime.time = launch.launches[0].windowstart;
       launchTimes.push(launchTime.time);
-      // console.log(launchTimes);
 
 
       var position = {lat: "", lng: ""};
@@ -80,7 +76,6 @@ Launches.prototype = {
 
       var individualLaunch = new Launch(position, rocket, mission, launchTime);
       map.addMarker(individualLaunch.position, individualLaunch.mission, individualLaunch.rocket);
-        // console.log(individualLaunch.rocket.wikiURL);
 
         ourLaunchAPI.push(individualLaunch);
       }
