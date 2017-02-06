@@ -21,19 +21,34 @@ UI.prototype = {
     },
 
     initializeClock: function(countDown){
-      var clock = document.querySelector("#countdown-div");
+      // var clock = document.querySelector("#countdown-div");
+      var tBody = document.querySelector("#data-row");
+      var row = document.createElement('tr');
+       var daysCol = document.createElement('td');
+       var hoursCol = document.createElement('td');
+       var minutesCol = document.createElement('td');
+       var secondsCol = document.createElement('td');
+     
       // console.log(nextLaunchTime);
       var timeinterval = setInterval(function(){
           var t = countDown.getTimeRemaining();
-          // console.log(t)
-          clock.innerHTML = 'Countdown to next launch: ' + '<br>' + 'days: ' + t.days + '<br>' +
-                            'hours: '+ t.hours + '<br>' +
-                            'minutes: ' + t.minutes + '<br>' +
-                            'seconds: ' + t.seconds;
+          // console.log(t.days)
+          daysCol.innerHTML = t.days;
+          hoursCol.innerHTML = t.hours;
+          minutesCol.innerHTML = t.minutes;
+          secondsCol.innerHTML = t.seconds;
+                       
           if(t.total<=0){
             clearInterval(timeinterval);
           }
         },1000);
+
+      row.appendChild(daysCol);
+      row.appendChild(hoursCol);
+      row.appendChild(minutesCol);
+      row.appendChild(secondsCol);
+      tBody.appendChild(row);
+      
       }
 //   addAllMarkers: function(){
 //     for(launch of this.launches){
