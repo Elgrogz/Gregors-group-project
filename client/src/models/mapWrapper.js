@@ -27,7 +27,11 @@ MapWrapper.prototype ={
       infoWindow.open(this.googleMap, marker);
       this.googleMap.setZoom(8);
       this.googleMap.setCenter(marker.getPosition());
+
     }.bind(this));
+
+
+
   },
   centreMap: function (button, coords, zoom){
     button.onclick = function () {
