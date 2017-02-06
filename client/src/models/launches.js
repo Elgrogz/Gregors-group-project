@@ -16,7 +16,6 @@ var Launches = function(map) {
     self.populateLaunches(launches, map);
   });
   var launchAPI = ourLaunchAPI;
-  console.log(nextLaunchTime);
   return ourLaunchAPI;
 };
 
@@ -87,6 +86,7 @@ Launches.prototype = {
 
       launchTimes.sort();
       nextLaunchTime = launchTimes[0];
+      localStorage.setItem('nextLaunchTime', nextLaunchTime);
 
       console.log(nextLaunchTime);
     }
