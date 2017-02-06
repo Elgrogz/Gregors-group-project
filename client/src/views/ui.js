@@ -26,7 +26,7 @@ UI.prototype = {
       var timeinterval = setInterval(function(){
           var t = countDown.getTimeRemaining();
           // console.log(t)
-          clock.innerHTML = 'days: ' + t.days + '<br>' +
+          clock.innerHTML = 'Countdown to next launch: ' + '<br>' + 'days: ' + t.days + '<br>' +
                             'hours: '+ t.hours + '<br>' +
                             'minutes: ' + t.minutes + '<br>' +
                             'seconds: ' + t.seconds;
