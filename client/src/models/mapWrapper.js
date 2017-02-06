@@ -1,7 +1,21 @@
 var MapWrapper = function (container, coords, zoom) {
   this.googleMap = new google.maps.Map(container, {
     center: coords,
-    zoom: zoom
+    zoom: zoom,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+      position: google.maps.ControlPosition.TOP_CENTER
+    },
+    zoomControl: true,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_CENTER
+    },
+    scaleControl: true,
+    streetViewControl: true,
+    streetViewControlOptions: {
+      position: google.maps.ControlPosition.LEFT_TOP
+    }
   })
 }
 
@@ -30,7 +44,11 @@ MapWrapper.prototype ={
       this.googleMap.setZoom(8);
       this.googleMap.setCenter(marker.getPosition());
     }.bind(this));
-
+    google.maps.event.addListener(infoWindow, 'closeclick', function() {
+      console.log("Closed.");
+      this.googleMap.setCenter(20, 0);
+      this.googleMap.setZoom(2);
+    }.bind(this));
   },
   centreMap: function (button, coords, zoom){
     button.onclick = function () {
