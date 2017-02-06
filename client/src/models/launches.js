@@ -24,12 +24,9 @@ Launches.prototype = {
     request.onload = callback;
     request.send();
   },
-<<<<<<< HEAD
-  populateLaunches: function(rocketLaunch, map) {
-=======
 
-  populateLaunches: function(rocketLaunch) {
->>>>>>> 23a2f07a65410dc174fda5397504c2bfd172c65c
+  populateLaunches: function(rocketLaunch, map) {
+
     var populatedLaunches = rocketLaunch.launches;
     var self = this;
     for (var i = 0; i < populatedLaunches.length; i++) {
