@@ -45,8 +45,7 @@ MapWrapper.prototype ={
       this.googleMap.setCenter(marker.getPosition());
     }.bind(this));
     google.maps.event.addListener(infoWindow, 'closeclick', function() {
-      console.log("Closed.");
-      this.googleMap.setCenter(20, 0);
+      this.googleMap.setCenter(coords);
       this.googleMap.setZoom(2);
     }.bind(this));
   },

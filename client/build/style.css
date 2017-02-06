@@ -1,20 +1,23 @@
 body {
-  background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTZr-LRtcBflY04xB-rWeaeSZokdWCQsZ0fu1oedUMzSqZ0wW18yg");
+  background-image:url("stars.jpg");
 }
 
 header {
   display: flex;
-  background-color: white;
 }
 
 #title-div {
   width: 50%;
-  border: 2px solid black;
+  color: white;
+  text-align: center;
+  padding-bottom: 2px;
 }
 
 #countdown-div {
   width: 50%;
-  border: 2px solid black;
+  color: white;
+  text-align: center;
+  padding-bottom: 2px;
 }
 
 #map {
