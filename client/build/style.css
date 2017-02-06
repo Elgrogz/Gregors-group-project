@@ -10,7 +10,7 @@ body {
 
 header {
   display: flex;
-  background-color: white;
+  background-color: tomato;
 }
 
 #title-div {
@@ -23,6 +23,17 @@ header {
   border: 2px solid black;
   width: 50%;
   border: 2px solid black;
+}
+
+#main-container {
+  display: flex;
+}
+
+#watchlist {
+  width: 15%;
+  margin-top: 5px;
+  margin-left: 2px;
+  background-color: tomato;
 }
 
 #map {
