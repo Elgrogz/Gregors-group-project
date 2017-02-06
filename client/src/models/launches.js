@@ -12,6 +12,7 @@ var Launches = function() {
     launches = JSON.parse(jsonString);
     self.populateLaunches(launches);
   });
+  var launchAPI = ourLaunchAPI;
   // console.log(ourLaunchAPI)
   return ourLaunchAPI;
 };
@@ -50,6 +51,7 @@ Launches.prototype = {
       var individualLaunch = new Launch(position);
         ourLaunchAPI.push(individualLaunch);
     } 
+        console.log(ourLaunchAPI);
   }
 
 

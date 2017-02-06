@@ -1,11 +1,12 @@
 var Launches = require('../models/launches');
 var MapWrapper = require('../models/mapWrapper');
 var launches = null;
+var map;
 
 var UI = function(){
   this.renderMap();
   launches = new Launches();
-  console.log(launches);
+  // console.log(launches);
   // if (launches.length != 0){
   this.generateMarkers();
 // }
@@ -15,18 +16,20 @@ UI.prototype = {
   renderMap: function () {
     var mapDiv = document.querySelector('#map');
     var center = {lat:20, lng:0};
-      var map = new MapWrapper(mapDiv, center, 2);
-      map.addMarker(center, "Hello");
+      map = new MapWrapper(mapDiv, center, 2);
+      
     },
     generateMarkers: function() {
       // console.log(launches);
 
       for (var launch of launches) {
-        console.log(launch)
-        var lat = launch[0].position.lat;
-        var lng = launch[0].position.lng;
+        // console.log(launch)
+        var latitude = launch.position.lat;
+        var longitude = launch.position.lng;
+        var coords = {lat: latitude, lng: longitude};
+        map.addMarker(coords, "Hello");
 
-        console.log(lat, lng);
+        // console.log(lat, lng);
       }
     }
   }
