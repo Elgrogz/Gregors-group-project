@@ -49,7 +49,10 @@ Launches.prototype = {
 
   makeLaunch: function(map){
     for (var launch of this.launchDetails){
-      console.log(launch.launches[0].windowstart);
+      // console.log(launch.launches[0].windowstart);
+
+      var launchTime = {time: ""}
+      launchTime.time = launch.launches[0].windowstart;
 
           var position = {lat: "", lng: ""};
       position.lat = launch.launches[0].location.pads[0].latitude;
@@ -70,7 +73,7 @@ Launches.prototype = {
             mission.missionType = "No mission type";
            }
 
-      var individualLaunch = new Launch(position, rocket, mission);
+      var individualLaunch = new Launch(position, rocket, mission, launchTime);
         map.addMarker(individualLaunch.position, individualLaunch.mission, individualLaunch.rocket);
         // console.log(individualLaunch.rocket.wikiURL);
 
