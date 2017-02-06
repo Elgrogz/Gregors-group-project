@@ -6,9 +6,9 @@ var MapWrapper = function (container, coords, zoom) {
 }
 
 MapWrapper.prototype ={
-  addMarker: function(coords, contentInfo){
+  addMarker: function(coords, missionData){
     var infoWindow = new google.maps.InfoWindow({
-      content: contentInfo
+      content: "<p><b>Mission name: </b>" + missionData.missionName + "</p><p><b>Description: </b>" + missionData.missionDesc + "</p><p><b>Mission Type:</b> " + missionData.missionType +"</p>"
     });
     var marker = new google.maps.Marker({
       position: coords,

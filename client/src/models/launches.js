@@ -55,15 +55,19 @@ Launches.prototype = {
       rocket.rocketName = launch.launches[0].rocket.name;
       rocket.wikiURL = launch.launches[0].rocket.wikiURL;
 
-      var mission = {missionDesc: ""};
+      var mission = {missionDesc: "", missionName: "", missionType: ""};
          if (launch.launches[0].missions[0]) {
         mission.missionDesc = launch.launches[0].missions[0].description;
+        mission.missionName = launch.launches[0].missions[0].name;
+        mission.missionType = launch.launches[0].missions[0].typeName;
            } else {
             mission.missionDesc = "No mission data";
+            mission.missionName = "No mission name";
+            mission.missionType = "No mission type";
            }
 
       var individualLaunch = new Launch(position, rocket, mission);
-        map.addMarker(individualLaunch.position, individualLaunch.mission.missionDesc);
+        map.addMarker(individualLaunch.position, individualLaunch.mission);
 
         ourLaunchAPI.push(individualLaunch);
     }
