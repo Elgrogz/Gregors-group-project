@@ -67,7 +67,8 @@ Launches.prototype = {
            }
 
       var individualLaunch = new Launch(position, rocket, mission);
-        map.addMarker(individualLaunch.position, individualLaunch.mission);
+        map.addMarker(individualLaunch.position, individualLaunch.mission, individualLaunch.rocket);
+        console.log(individualLaunch.rocket.wikiURL);
 
         ourLaunchAPI.push(individualLaunch);
     }

@@ -6,9 +6,9 @@ var MapWrapper = function (container, coords, zoom) {
 }
 
 MapWrapper.prototype ={
-  addMarker: function(coords, missionData){
+  addMarker: function(coords, missionData, rocketData){
     var infoWindow = new google.maps.InfoWindow({
-      content: "<p><b>Mission name: </b>" + missionData.missionName + "</p><p><b>Description: </b>" + missionData.missionDesc + "</p><p><b>Mission Type:</b> " + missionData.missionType +"</p>"
+      content: "<p><b>Mission</p><p>Mission name: </b>" + missionData.missionName + "</p><p><b>Description: </b>" + missionData.missionDesc + "</p><p><b>Mission Type:</b> " + missionData.missionType +"</p><p><b>Rocket</p><p>Rocket name: </b>" + rocketData.rocketName + "</p><p><b>Rocket info: </b><a href='" + rocketData.wikiURL + "'>" + rocketData.wikiURL + "</a></p>"
     });
     var marker = new google.maps.Marker({
       position: coords,
