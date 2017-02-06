@@ -22,8 +22,10 @@ UI.prototype = {
 
     initializeClock: function(countDown){
       var clock = document.querySelector("#countdown-div");
+      // console.log(nextLaunchTime);
       var timeinterval = setInterval(function(){
           var t = countDown.getTimeRemaining();
+          // console.log(t)
           clock.innerHTML = 'days: ' + t.days + '<br>' +
                             'hours: '+ t.hours + '<br>' +
                             'minutes: ' + t.minutes + '<br>' +

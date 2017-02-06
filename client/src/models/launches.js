@@ -1,6 +1,8 @@
 var Launch = require('./launch');
 var launches;
 var ourLaunchAPI = [];
+var launchTimes = [];
+var nextLaunchTime;
 // var arrayCounter = 0;
 
 var Launches = function(map) {
@@ -14,7 +16,6 @@ var Launches = function(map) {
     self.populateLaunches(launches, map);
   });
   var launchAPI = ourLaunchAPI;
-  // console.log(ourLaunchAPI)
   return ourLaunchAPI;
 };
 
@@ -49,12 +50,15 @@ Launches.prototype = {
 
   makeLaunch: function(map){
     for (var launch of this.launchDetails){
-      // console.log(launch.launches[0].windowstart);
+
 
       var launchTime = {time: ""}
       launchTime.time = launch.launches[0].windowstart;
+      launchTimes.push(launchTime.time);
+      // console.log(launchTimes);
 
-          var position = {lat: "", lng: ""};
+
+      var position = {lat: "", lng: ""};
       position.lat = launch.launches[0].location.pads[0].latitude;
       position.lng =launch.launches[0].location.pads[0].longitude;
 
@@ -63,26 +67,30 @@ Launches.prototype = {
       rocket.wikiURL = launch.launches[0].rocket.wikiURL;
 
       var mission = {missionDesc: "", missionName: "", missionType: ""};
-         if (launch.launches[0].missions[0]) {
+      if (launch.launches[0].missions[0]) {
         mission.missionDesc = launch.launches[0].missions[0].description;
         mission.missionName = launch.launches[0].missions[0].name;
         mission.missionType = launch.launches[0].missions[0].typeName;
-           } else {
-            mission.missionDesc = "No mission data";
-            mission.missionName = "No mission name";
-            mission.missionType = "No mission type";
-           }
+      } else {
+        mission.missionDesc = "No mission data";
+        mission.missionName = "No mission name";
+        mission.missionType = "No mission type";
+      }
 
       var individualLaunch = new Launch(position, rocket, mission, launchTime);
-        map.addMarker(individualLaunch.position, individualLaunch.mission, individualLaunch.rocket);
+      map.addMarker(individualLaunch.position, individualLaunch.mission, individualLaunch.rocket);
         // console.log(individualLaunch.rocket.wikiURL);
 
         ourLaunchAPI.push(individualLaunch);
+      }
+
+      launchTimes.sort();
+      nextLaunchTime = launchTimes[0];
+
+      console.log(nextLaunchTime);
     }
 
-}
-
-};
+  };
 
 
 module.exports = Launches;
