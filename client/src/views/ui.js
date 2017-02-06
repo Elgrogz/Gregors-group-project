@@ -3,10 +3,8 @@ var MapWrapper = require('../models/mapWrapper');
 
 
 var UI = function(){
-
   this.map = this.renderMap();
   this.launches = new Launches(this.map);
-
 }
 
 
