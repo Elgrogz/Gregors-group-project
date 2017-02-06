@@ -16,6 +16,7 @@ var Launches = function(map) {
     self.populateLaunches(launches, map);
   });
   var launchAPI = ourLaunchAPI;
+  console.log(nextLaunchTime);
   return ourLaunchAPI;
 };
 

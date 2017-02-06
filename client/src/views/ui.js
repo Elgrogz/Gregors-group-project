@@ -6,8 +6,8 @@ var CountDown = require('../models/countDown');
 var UI = function(){
 
   this.map = this.renderMap();
-  this.launches = new Launches(this.map);
   this.countDown = new CountDown();
+  this.launches = new Launches(this.map);
   this.initializeClock(this.countDown);
 }
 
