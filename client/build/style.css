@@ -1,7 +1,3 @@
-* {
-  border: 2px solid black;
-}
-
 body {
   background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTZr-LRtcBflY04xB-rWeaeSZokdWCQsZ0fu1oedUMzSqZ0wW18yg");
 }
@@ -13,10 +9,12 @@ header {
 
 #title-div {
   width: 50%;
+  border: 2px solid black;
 }
 
 #countdown-div {
   width: 50%;
+  border: 2px solid black;
 }
 
 #map {
