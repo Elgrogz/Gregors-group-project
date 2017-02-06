@@ -23,6 +23,7 @@ MapWrapper.prototype ={
 
   addMarker: function(coords, missionData, launchTime, rocketData){
     var infoWindow = new google.maps.InfoWindow({
+<<<<<<< HEAD
 
       content: "<div id=iw-container>" + 
                     "<div class='iw-title'><p><b>Mission</p></div>" +

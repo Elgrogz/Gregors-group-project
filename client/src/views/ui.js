@@ -26,10 +26,11 @@ UI.prototype = {
       var timeinterval = setInterval(function(){
           var t = countDown.getTimeRemaining();
           // console.log(t)
-          clock.innerHTML = 'days: ' + t.days + '<br>' +
-                            'hours: '+ t.hours + '<br>' +
-                            'minutes: ' + t.minutes + '<br>' +
-                            'seconds: ' + t.seconds;
+          clock.innerHTML = 'Next Countdown:' + '<br>' +
+                            t.days + ' days' + '<br>' +
+                            t.hours + ' hours'+ '<br>' +
+                            t.minutes + ' minutes' + '<br>' +
+                            t.seconds + ' seconds';
           if(t.total<=0){
             clearInterval(timeinterval);
           }
