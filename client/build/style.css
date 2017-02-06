@@ -6,6 +6,14 @@ header {
   display: flex;
 }
 
+#title-div {
+  width: 50%;
+}
+
+#countdown-div {
+  width: 50%;
+}
+
 #map {
   float: right;
   margin: 10px;
