@@ -11,6 +11,7 @@ header {
   color: white;
   text-align: center;
   padding-bottom: 2px;
+  font-family: 'Barrio', cursive;
 }
 
 #countdown-div {
@@ -18,6 +19,7 @@ header {
   color: white;
   text-align: center;
   padding-bottom: 2px;
+  font-family: 'Barrio', cursive;
 }
 
 #map {
@@ -36,6 +38,10 @@ header {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+#iw-container{
+  font-family: 'Cabin Sketch', cursive;  font-size: 15px;
+}
+
 table {
   width: 100%;
   margin: auto;
@@ -47,4 +53,9 @@ th {
 
 td {
   font-size: 1.2em;
+}
+
+#map{
+  border: 5px solid #0000e6
+
 }
