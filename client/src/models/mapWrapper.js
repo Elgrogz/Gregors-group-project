@@ -19,10 +19,12 @@ var MapWrapper = function (container, coords, zoom) {
   })
 }
 
+
 MapWrapper.prototype ={
 
   addMarker: function(coords, missionData, launchTime, rocketData){
     var infoWindow = new google.maps.InfoWindow({
+
       content: "<div id=iw-container>" + 
                     "<div class='iw-title'><p><b>Mission</p></div>" +
                         "<p>Mission name: </b>" + missionData.missionName + 
@@ -31,8 +33,12 @@ MapWrapper.prototype ={
                         "</p><p><b>Date:</b> " + launchTime.time +
                     "<div class='iw-title'></p><p><b>Rocket</p></div>" +
                         "<p>Rocket name: </b>" + rocketData.rocketName +
-                        "</p><p><b>Rocket info: </b><a href='" + rocketData.wikiURL + "'>" + rocketData.wikiURL + "</a></p></div>"
+                        "</p><p><b>Rocket info: </b><a href='" + rocketData.wikiURL + "'>" + rocketData.wikiURL + "</a></p>" +
+                        "</a></p> <p><button>Button</button></p></div>"
     });
+
+    // var button = document.querySelector('button');
+    // button.onclick = addToWatchlist;
    
     var iconRocket = {
         url: "https://cdn4.iconfinder.com/data/icons/whsr-january-flaticon-set/512/rocket.png",
@@ -40,17 +46,18 @@ MapWrapper.prototype ={
         origin: new google.maps.Point(0,0), // origin
         anchor: new google.maps.Point(0, 0) // anchor
     };
-
     var marker = new google.maps.Marker({
       position: coords,
       map: this.googleMap,
       animation: google.maps.Animation.DROP,
-      icon: iconRocket
+      icon: iconRocket,
+      name: missionData.missionName
     });
     marker.addListener('click', function (){
       infoWindow.open(this.googleMap, marker);
       this.googleMap.setZoom(8);
       this.googleMap.setCenter(marker.getPosition());
+      localStorage.setItem()
     }.bind(this));
     google.maps.event.addListener(infoWindow, 'closeclick', function() {
       this.googleMap.setCenter(coords);

@@ -4,6 +4,10 @@ body {
 
 header {
   display: flex;
+<<<<<<< HEAD
+=======
+  background-color: tomato;
+>>>>>>> feature/watchlist
 }
 
 #title-div {
@@ -18,6 +22,16 @@ header {
   color: white;
   text-align: center;
   padding-bottom: 2px;
+}
+
+#main-container {
+  display: flex;
+}
+
+#watchlist-test {
+  width: 15%;
+  margin-top: 5px;
+  margin-left: 2px;
 }
 
 #map {
