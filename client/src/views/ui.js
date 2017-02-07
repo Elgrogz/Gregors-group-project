@@ -13,6 +13,8 @@ var UI = function(){
   var watchlistButton = document.querySelector("#watchlist-button");
   watchlistButton.style.visibility = 'hidden';
   watchlistButton.onclick = this.addToWatchlist.bind(this);
+
+  this.listMissionsFromWatchlist();
 }
 
 
@@ -65,11 +67,28 @@ UI.prototype = {
       },
 
       listMissionsFromWatchlist: function(){
-        var page = document.querySelector("watchlist-test");
+        var page = document.querySelector("#watchlist-test");
         var ul = document.createElement("ul");
         page.appendChild(ul);
-        var li = document.createElement("li");
-        ul.appendChild(li);
+
+        ajax.makeRequest('/launches', function(){
+          if(this.status !== 200) return;
+          var jsonString = this.responseText;
+          watchlistMissions = JSON.parse(jsonString);
+
+          watchlistMissions.forEach(function(mission){
+            var liName = document.createElement("li");
+              liName.innerHTML = mission.name
+              ul.appendChild(liName);
+            var liDate = document.createElement("li");
+              liDate.innerHTML = mission.date
+              ul.appendChild(liDate);
+            var liStrings = document.createElement("li");
+              liStrings.innerHTML = "-------------------"
+              ul.appendChild(liStrings);
+          });
+
+        });
 
 
       }
