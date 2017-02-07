@@ -51,7 +51,7 @@ header {
 }
 
 table {
-  width: 100%;
+  width: 80%;
   margin: auto;
 }
 
@@ -60,5 +60,5 @@ th {
 }
 
 td {
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
