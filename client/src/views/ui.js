@@ -9,8 +9,9 @@ var UI = function(){
   this.countDown = new CountDown(nextDate);
   this.launches = new Launches(this.map);
   this.initializeClock(this.countDown);
-  // var button = document.querySelector('button');
-  // button.onclick = this.addToWatchlist;
+  var watchlistButton = document.querySelector("#watchlist-button");
+  watchlistButton.style.visibility = 'hidden';
+  watchlistButton.onclick = this.addToWatchlist.bind(this);
 }
 
 
@@ -51,6 +52,24 @@ UI.prototype = {
       row.appendChild(secondsCol);
       tBody.appendChild(row);
       
+      },
+
+      makePostRequest: function(url, data, callback) {
+        var request = new XMLHttpRequest();
+        request.open("POST", url);
+        request.setRequestHeader("Content-type", "application/json");
+        request.onload = callback;
+        console.log(data);
+        request.send(data);
+      },
+
+      addToWatchlist: function(){
+        var nameForWatchList = {name: localStorage.getItem('name')};
+        var nameAsString = JSON.stringify(nameForWatchList);
+        // console.log(this.launches);
+        this.makePostRequest('/', nameAsString, function(){
+          console.log(this.responseText);
+        });
       }
 
 

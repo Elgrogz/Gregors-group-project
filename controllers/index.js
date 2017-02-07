@@ -11,12 +11,11 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
+  console.log("POSTing", req.body);
   var data = {
-    name: req.body.missionName,
-    date: req.body.launchTime
+    name: req.body.name,
   };
-  query.add(data);
-  query.all(function(results) {
+  query.add(data, function(results) {
     res.json(results);
   });
 });

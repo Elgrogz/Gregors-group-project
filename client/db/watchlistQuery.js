@@ -1,7 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 
 var WatchlistQuery = function() {
-  this.url = "mongodb:://localhost:27017/watchlist";
+  this.url = "mongodb://localhost:27017/watchlist";
 }
 
 WatchlistQuery.prototype = {
@@ -14,8 +14,12 @@ WatchlistQuery.prototype = {
     })
   },
   add: function(launchToAdd, onQueryFinished) {
+    console.log("ADDING", launchToAdd);
+    console.log("URL:", this.url);
     MongoClient.connect(this.url, function(err, db) {
-      if (db) {
+      if (err) {
+        console.log("Error:", err);
+      } else if (db) {
         var collection = db.collection("launches");
         collection.insert(launchToAdd);
         collection.find().toArray(function(err, docs) {

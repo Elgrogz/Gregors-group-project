@@ -28,14 +28,6 @@ Launches.prototype = {
     request.send();
   },
 
-  makePostRequest: function(url, data, callback) {
-    var request = new XMLHttpRequest();
-    request.open("POST", url);
-    request.setRequestHeader("Content-type", "application/json");
-    request.onload = callback;
-    request.send(data);
-  },
-
   populateLaunches: function(rocketLaunch, map) {
     var populatedLaunches = rocketLaunch.launches;
     var self = this;
