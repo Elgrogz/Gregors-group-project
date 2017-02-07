@@ -60,16 +60,20 @@ UI.prototype = {
       addToWatchlist: function(){
         var nameForWatchList = {name: localStorage.getItem('name'), date: localStorage.getItem('date')};
         var nameAsString = JSON.stringify(nameForWatchList);
-        // console.log(this.launches);
         ajax.makePostRequest('/', nameAsString, function(){
-          console.log(this.responseText);
-        });
+            this.listMissionsFromWatchlist();
+        }.bind(this));
       },
 
       listMissionsFromWatchlist: function(){
         var page = document.querySelector("#watchlist-test");
+        page.innerHTML = "";
+        var title = document.createElement("p");
+        title.innerHTML= "My watchlist:"
+        page.appendChild(title);
         var ul = document.createElement("ul");
         page.appendChild(ul);
+
 
         ajax.makeRequest('/launches', function(){
           if(this.status !== 200) return;
@@ -78,10 +82,10 @@ UI.prototype = {
 
           watchlistMissions.forEach(function(mission){
             var liName = document.createElement("li");
-              liName.innerHTML = mission.name
+              liName.innerHTML = "Mission name: " + mission.name
               ul.appendChild(liName);
             var liDate = document.createElement("li");
-              liDate.innerHTML = mission.date
+              liDate.innerHTML = "Launch date: " + mission.date
               ul.appendChild(liDate);
             var liStrings = document.createElement("li");
               liStrings.innerHTML = "-------------------"
