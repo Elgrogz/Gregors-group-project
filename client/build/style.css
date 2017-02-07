@@ -22,6 +22,16 @@ header {
   font-family: 'Barrio', cursive;
 }
 
+#main-container {
+  display: flex;
+}
+
+#watchlist-test {
+  width: 15%;
+  margin-top: 5px;
+  margin-left: 2px;
+}
+
 #map {
   margin: auto;
   margin-top: 5px;
@@ -43,7 +53,7 @@ header {
 }
 
 table {
-  width: 100%;
+  width: 80%;
   margin: auto;
 }
 
@@ -58,4 +68,5 @@ td {
 #map{
   border: 5px solid #0000e6
 
+  font-size: 1.5em;
 }
