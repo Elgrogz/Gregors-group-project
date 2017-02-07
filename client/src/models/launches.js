@@ -1,4 +1,5 @@
 var Launch = require('./launch');
+var ajax = require('./ajax');
 var launches;
 var ourLaunchAPI = [];
 var launchTimes = [];
@@ -8,7 +9,7 @@ var Launches = function(map) {
   var url = "https://launchlibrary.net/1.1/launch";
   var self = this;
   this.launchDetails = [];
-  this.makeRequest(url, function() {
+  ajax.makeRequest(url, function() {
     if (this.status !==200) return;
     var jsonString = this.responseText;
     launches = JSON.parse(jsonString);
@@ -21,20 +22,13 @@ var Launches = function(map) {
 
 
 Launches.prototype = {
-  makeRequest: function(url, callback) {
-    var request = new XMLHttpRequest();
-    request.open("GET",url);
-    request.onload = callback;
-    request.send();
-  },
-
   populateLaunches: function(rocketLaunch, map) {
     var populatedLaunches = rocketLaunch.launches;
     var self = this;
     for (var i = 0; i < populatedLaunches.length; i++) {
       var id = populatedLaunches[i].id;
       var url = 'https://launchlibrary.net/1.1/launch/'+ id;
-      this.makeRequest(url, function() {
+      ajax.makeRequest(url, function() {
         if (this.status !==200) return;
         var jsonString = this.responseText;
         launchObject = JSON.parse(jsonString);

@@ -1,7 +1,8 @@
 var Launches = require('../models/launches');
 var MapWrapper = require('../models/mapWrapper');
 var CountDown = require('../models/countDown');
-var nextDate = localStorage.getItem('nextLaunchTime')
+var nextDate = localStorage.getItem('nextLaunchTime');
+var ajax = require('../models/ajax');
 
 
 var UI = function(){
@@ -54,22 +55,23 @@ UI.prototype = {
       
       },
 
-      makePostRequest: function(url, data, callback) {
-        var request = new XMLHttpRequest();
-        request.open("POST", url);
-        request.setRequestHeader("Content-type", "application/json");
-        request.onload = callback;
-        console.log(data);
-        request.send(data);
-      },
-
       addToWatchlist: function(){
         var nameForWatchList = {name: localStorage.getItem('name'), date: localStorage.getItem('date')};
         var nameAsString = JSON.stringify(nameForWatchList);
         // console.log(this.launches);
-        this.makePostRequest('/', nameAsString, function(){
+        ajax.makePostRequest('/', nameAsString, function(){
           console.log(this.responseText);
         });
+      },
+
+      listMissionsFromWatchlist: function(){
+        var page = document.querySelector("watchlist-test");
+        var ul = document.createElement("ul");
+        page.appendChild(ul);
+        var li = document.createElement("li");
+        ul.appendChild(li);
+
+
       }
 
 

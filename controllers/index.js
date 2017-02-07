@@ -21,4 +21,10 @@ router.post('/', function (req, res) {
   });
 });
 
+router.get('/launches', function (req, res) {
+  query.all(function(results) {
+    res.json(results);
+  });
+})
+
 module.exports = router;
