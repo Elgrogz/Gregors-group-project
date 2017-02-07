@@ -2,6 +2,7 @@ var MapWrapper = function (container, coords, zoom) {
   this.googleMap = new google.maps.Map(container, {
     center: coords,
     zoom: zoom,
+    minZoom: 2,
     mapTypeControl: true,
     mapTypeControlOptions: {
       style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
