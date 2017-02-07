@@ -27,7 +27,9 @@ header {
 }
 
 #watchlist-test {
-  width: 100%;
+  float: left;
+  width: 20%;
+  margin: auto;
   margin-top: 5px;
   margin-left: 2px;
   color: white;
@@ -39,9 +41,10 @@ header {
 }
 
 #map {
+  float: right;
   margin: auto;
   margin-top: 5px;
-  width: 80%;
+  width: 70%;
   height: 550px;
 }
 
