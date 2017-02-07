@@ -35,7 +35,7 @@ MapWrapper.prototype ={
                     "<div class='iw-title'></p><p><b>Rocket</p></div>" +
                         "<p>Rocket name: </b>" + rocketData.rocketName +
                         "</p><p><b>Rocket info: </b><a href='" + rocketData.wikiURL + "'>" + rocketData.wikiURL + "</a></p>" +
-                        "</a></p> <p><button>Button</button></p></div>"
+                        "</a></p></div>"
     });
 
     // var button = document.querySelector('button');
@@ -52,13 +52,11 @@ MapWrapper.prototype ={
       map: this.googleMap,
       animation: google.maps.Animation.DROP,
       icon: iconRocket,
-      name: missionData.missionName
     });
     marker.addListener('click', function (){
       infoWindow.open(this.googleMap, marker);
       this.googleMap.setZoom(8);
       this.googleMap.setCenter(marker.getPosition());
-      localStorage.setItem()
     }.bind(this));
     google.maps.event.addListener(infoWindow, 'closeclick', function() {
       this.googleMap.setCenter(coords);
