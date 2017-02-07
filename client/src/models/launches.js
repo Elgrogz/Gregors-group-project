@@ -16,7 +16,7 @@ var Launches = function(map) {
     self.populateLaunches(launches, map);
   });
   var launchAPI = ourLaunchAPI;
-  console.log(nextLaunchTime);
+  // console.log(nextLaunchTime);
   return ourLaunchAPI;
 };
 
@@ -29,8 +29,15 @@ Launches.prototype = {
     request.send();
   },
 
-  populateLaunches: function(rocketLaunch, map) {
+  makePostRequest: function(url, data, callback) {
+    var request = new XMLHttpRequest();
+    request.open("POST", url);
+    request.setRequestHeader("Content-type", "application/json");
+    request.onload = callback;
+    request.send(data);
+  },
 
+  populateLaunches: function(rocketLaunch, map) {
     var populatedLaunches = rocketLaunch.launches;
     var self = this;
     for (var i = 0; i < populatedLaunches.length; i++) {
