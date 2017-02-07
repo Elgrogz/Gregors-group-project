@@ -64,7 +64,7 @@ UI.prototype = {
       },
 
       addToWatchlist: function(){
-        var nameForWatchList = {name: localStorage.getItem('name')};
+        var nameForWatchList = {name: localStorage.getItem('name'), date: localStorage.getItem('date')};
         var nameAsString = JSON.stringify(nameForWatchList);
         // console.log(this.launches);
         this.makePostRequest('/', nameAsString, function(){

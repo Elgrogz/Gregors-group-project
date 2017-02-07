@@ -51,13 +51,15 @@ MapWrapper.prototype ={
       map: this.googleMap,
       animation: google.maps.Animation.DROP,
       icon: iconRocket,
-      name: missionData.missionName
+      name: missionData.missionName,
+      date: launchTime.time
     });
     marker.addListener('click', function (){
       infoWindow.open(this.googleMap, marker);
       this.googleMap.setZoom(8);
       this.googleMap.setCenter(marker.getPosition());
       localStorage.setItem('name', marker.name);
+      localStorage.setItem('date', marker.date);
       var watchlistButton = document.querySelector("#watchlist-button");
       watchlistButton.style.visibility = 'visible';
     }.bind(this));
