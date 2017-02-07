@@ -31,6 +31,11 @@ header {
   margin-top: 5px;
   margin-left: 2px;
   color: white;
+  font-family: 'Cabin Sketch', cursive;  font-size: 15px;
+}
+
+#watchlist-test p {
+  font-family: 'Barrio', cursive;
 }
 
 #map {
