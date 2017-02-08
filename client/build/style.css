@@ -90,7 +90,7 @@ td {
   font-size: 1.5em;
 }
 
-#watchlist-button {
+button {
   background: #3385ff;
   background-image: -webkit-linear-gradient(top, #3385ff, #3385ff);
   background-image: -moz-linear-gradient(top, #3385ff, #3385ff);
@@ -104,11 +104,14 @@ td {
   font-family: Courier New;
   color: #ffffff;
   font-size: 15px;
-  padding: 10px 20px 10px 20px;
   text-decoration: none;
 }
 
-#watchlist-button:hover {
+#watchlist-button {
+  padding: 10px 20px 10px 20px;
+}
+
+button:hover {
   background: #3385ff;
   background-image: -webkit-linear-gradient(top, #3385ff, #0000f5);
   background-image: -moz-linear-gradient(top, #3385ff, #0000f5);
@@ -124,4 +127,9 @@ ul li {
 
 #dashed-line {
   color: orange;
+}
+
+#delete-button {
+  padding-left: 10px;
+  padding-right: 10px;
 }

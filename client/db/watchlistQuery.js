@@ -24,7 +24,18 @@ WatchlistQuery.prototype = {
        });
       }
     });
-  }
+  },
+  // remove: function(launchToRemove, onQueryFinished) {
+  //   MongoClient.connect(this.url, function(err, db) {
+  //     if (err) {
+  //       }
+  //     else if (db) {
+  //       var collection = db.collection("launches");
+  //       collection.remove(launchToRemove);
+  //       console.log(launchToRemove);
+  //     };
+  //   });
+  // }
 
 }
 

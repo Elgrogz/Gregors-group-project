@@ -25,6 +25,10 @@ router.get('/launches', function (req, res) {
   query.all(function(results) {
     res.json(results);
   });
-})
+});
+
+// router.delete('/:id', function(req, res) {
+//   console.log(res);
+// });
 
 module.exports = router;
