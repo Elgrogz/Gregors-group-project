@@ -14,6 +14,14 @@ var ajax = {
     request.onload = callback;
     console.log(data);
     request.send(data);
+  },
+
+  deleteRequest: function(url, callback){
+    var request = new XMLHttpRequest();
+    request.open("DELETE", url);
+    request.setRequestHeader("Content-type", "application/json");
+    request.onload = callback;
+    request.send();
   }
 
 

@@ -31,4 +31,13 @@ router.get('/launches', function (req, res) {
 //   console.log(res);
 // });
 
+//delete mission
+router.delete('/launches/:name', function(req, res) {
+  query.remove(req.params.name);
+  query.all(function(results) {
+    res.json(results);
+  });
+});
+
+
 module.exports = router;

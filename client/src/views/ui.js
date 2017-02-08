@@ -82,7 +82,7 @@ UI.prototype = {
         var ul = document.createElement("ul");
         page.appendChild(ul);
 
-
+        var self = this;
         ajax.makeRequest('/launches', function(){
           if(this.status !== 200) return;
           var jsonString = this.responseText;
@@ -107,6 +107,12 @@ UI.prototype = {
             liStrings.setAttribute('id', 'dashed-line');
               liStrings.innerHTML = "-------------------"
               ul.appendChild(liStrings);
+
+              deleteButton.onclick = function (){
+                ajax.deleteRequest('/launches/' + mission.name,function(){
+                  self.listMissionsFromWatchlist()});
+              }
+              
           });
         });
       }
