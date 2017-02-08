@@ -72,14 +72,23 @@ Launches.prototype = {
       var individualLaunch = new Launch(position, mission, launchTime, rocket);
       map.addMarker(individualLaunch.position, individualLaunch.mission, individualLaunch.launchTime, individualLaunch.rocket);
         ourLaunchAPI.push(individualLaunch);
-        console.log(individualLaunch)
+       
       }
 
       launchTimes.sort();
       nextLaunchTime = launchTimes[0];
       localStorage.setItem('nextLaunchTime', nextLaunchTime);
 
-      console.log(nextLaunchTime);
+      for(launch of ourLaunchAPI){
+        if (nextLaunchTime === launch.launchTime.time){
+          localStorage.setItem('nextMissionLat', launch.position.lat);
+          localStorage.setItem('nextMissionLng', launch.position.lng);
+        } else {
+          return;
+        }
+      }
+
+      
     } 
 
   };

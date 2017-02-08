@@ -70,11 +70,9 @@ MapWrapper.prototype ={
       watchlistButton.style.visibility = 'hidden';
     }.bind(this));
   },
-  centreMap: function (button, coords, zoom){
-    button.onclick = function () {
+  centreMap: function (coords, zoom){
       this.googleMap.setCenter(coords);
       this.googleMap.setZoom(zoom);
-    }.bind(this);
   }
 }
 
