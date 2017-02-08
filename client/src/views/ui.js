@@ -9,17 +9,13 @@ var UI = function(){
   this.map = this.renderMap();
   this.countDown = new CountDown(nextDate);
   this.launches = new Launches(this.map);
-
   this.initializeClock(this.countDown);
-
   var watchlistButton = document.querySelector("#watchlist-button");
   watchlistButton.style.visibility = 'hidden';
   watchlistButton.onclick = this.addToWatchlist.bind(this);
-
-  this.listMissionsFromWatchlist();
-
   var countdownButton = document.querySelector('#go-to-next-launch');
   countdownButton.onclick = this.moveMapToNextLaunch.bind(this);
+  this.listMissionsFromWatchlist();
 }
 
 
@@ -103,6 +99,10 @@ UI.prototype = {
               deleteButton.setAttribute('id', 'delete-button');
               deleteButton.innerHTML = "Delete Mission"
               ul.appendChild(deleteButton);
+            var mapLocationButton = document.createElement("button");
+              mapLocationButton.setAttribute('id', "go-to-next-launch");
+              mapLocationButton.innerHTML = "Show Launch"
+              ul.appendChild(mapLocationButton);
             var liStrings = document.createElement("li");
             liStrings.setAttribute('id', 'dashed-line');
               liStrings.innerHTML = "-------------------"
