@@ -14,6 +14,11 @@ header {
   font-family: 'Barrio', cursive;
 }
 
+h1 {
+  text-decoration: underline;
+  color: red;
+}
+
 #countdown-div {
   width: 50%;
   color: white;
@@ -38,6 +43,11 @@ header {
 
 #watchlist-test p {
   font-family: 'Barrio', cursive;
+  text-align: center;
+}
+
+#watchlist-title {
+  color: orange;
 }
 
 #map {
@@ -62,12 +72,13 @@ header {
 }
 
 table {
-  width: 80%;
+  width: 60%;
   margin: auto;
 }
 
 th {
   font-size: 0.9em;
+  background-color: #3385ff;
 }
 
 td {
@@ -105,4 +116,12 @@ td {
   background-image: -o-linear-gradient(top, #3385ff, #0000f5);
   background-image: linear-gradient(to bottom, #3385ff, #0000f5);
   text-decoration: none;
+}
+
+ul li {
+  list-style-type: square;
+}
+
+#dashed-line {
+  color: orange;
 }

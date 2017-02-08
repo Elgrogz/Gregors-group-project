@@ -69,6 +69,7 @@ UI.prototype = {
         var page = document.querySelector("#watchlist-test");
         page.innerHTML = "";
         var title = document.createElement("p");
+        title.setAttribute("id", "watchlist-title");
         title.innerHTML= "My watchlist:"
         page.appendChild(title);
         var ul = document.createElement("ul");
@@ -87,7 +88,12 @@ UI.prototype = {
             var liDate = document.createElement("li");
               liDate.innerHTML = "Launch date: " + mission.date
               ul.appendChild(liDate);
+            var deleteButton = document.createElement("button");
+              deleteButton.setAttribute('id', 'delete-button');
+              deleteButton.innerHTML = "delete mission"
+              ul.appendChild(deleteButton);
             var liStrings = document.createElement("li");
+            liStrings.setAttribute('id', 'dashed-line');
               liStrings.innerHTML = "-------------------"
               ul.appendChild(liStrings);
           });
