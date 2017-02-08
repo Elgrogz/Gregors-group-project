@@ -88,6 +88,10 @@ UI.prototype = {
             var liDate = document.createElement("li");
               liDate.innerHTML = "Launch date: " + mission.date
               ul.appendChild(liDate);
+            var deleteButton = document.createElement("button");
+              deleteButton.setAttribute('id', 'delete-button');
+              deleteButton.innerHTML = "delete mission"
+              ul.appendChild(deleteButton);
             var liStrings = document.createElement("li");
             liStrings.setAttribute('id', 'dashed-line');
               liStrings.innerHTML = "-------------------"
