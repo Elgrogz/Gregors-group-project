@@ -99,10 +99,6 @@ UI.prototype = {
               deleteButton.setAttribute('id', 'delete-button');
               deleteButton.innerHTML = "Delete Mission"
               ul.appendChild(deleteButton);
-            var mapLocationButton = document.createElement("button");
-              mapLocationButton.setAttribute('id', "go-to-next-launch");
-              mapLocationButton.innerHTML = "Show Launch"
-              ul.appendChild(mapLocationButton);
             var liStrings = document.createElement("li");
             liStrings.setAttribute('id', 'dashed-line');
               liStrings.innerHTML = "-------------------"
