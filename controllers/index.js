@@ -14,10 +14,17 @@ router.post('/', function (req, res) {
   console.log("POSTing", req.body);
   var data = {
     name: req.body.name,
+    date: req.body.date,
   };
   query.add(data, function(results) {
     res.json(results);
   });
 });
+
+router.get('/launches', function (req, res) {
+  query.all(function(results) {
+    res.json(results);
+  });
+})
 
 module.exports = router;

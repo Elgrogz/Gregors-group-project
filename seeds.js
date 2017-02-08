@@ -1,0 +1,3 @@
+use watchlist;
+
+db.dropDatabase();

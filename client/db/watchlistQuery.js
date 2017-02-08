@@ -14,11 +14,8 @@ WatchlistQuery.prototype = {
     })
   },
   add: function(launchToAdd, onQueryFinished) {
-    console.log("ADDING", launchToAdd);
-    console.log("URL:", this.url);
     MongoClient.connect(this.url, function(err, db) {
       if (err) {
-        console.log("Error:", err);
       } else if (db) {
         var collection = db.collection("launches");
         collection.insert(launchToAdd);

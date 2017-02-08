@@ -1,7 +1,8 @@
 var Launches = require('../models/launches');
 var MapWrapper = require('../models/mapWrapper');
 var CountDown = require('../models/countDown');
-var nextDate = localStorage.getItem('nextLaunchTime')
+var nextDate = localStorage.getItem('nextLaunchTime');
+var ajax = require('../models/ajax');
 
 
 var UI = function(){
@@ -12,6 +13,8 @@ var UI = function(){
   var watchlistButton = document.querySelector("#watchlist-button");
   watchlistButton.style.visibility = 'hidden';
   watchlistButton.onclick = this.addToWatchlist.bind(this);
+
+  this.listMissionsFromWatchlist();
 }
 
 
@@ -54,22 +57,44 @@ UI.prototype = {
       
       },
 
-      makePostRequest: function(url, data, callback) {
-        var request = new XMLHttpRequest();
-        request.open("POST", url);
-        request.setRequestHeader("Content-type", "application/json");
-        request.onload = callback;
-        console.log(data);
-        request.send(data);
+      addToWatchlist: function(){
+        var nameForWatchList = {name: localStorage.getItem('name'), date: localStorage.getItem('date')};
+        var nameAsString = JSON.stringify(nameForWatchList);
+        ajax.makePostRequest('/', nameAsString, function(){
+            this.listMissionsFromWatchlist();
+        }.bind(this));
       },
 
-      addToWatchlist: function(){
-        var nameForWatchList = {name: localStorage.getItem('name')};
-        var nameAsString = JSON.stringify(nameForWatchList);
-        // console.log(this.launches);
-        this.makePostRequest('/', nameAsString, function(){
-          console.log(this.responseText);
+      listMissionsFromWatchlist: function(){
+        var page = document.querySelector("#watchlist-test");
+        page.innerHTML = "";
+        var title = document.createElement("p");
+        title.innerHTML= "My watchlist:"
+        page.appendChild(title);
+        var ul = document.createElement("ul");
+        page.appendChild(ul);
+
+
+        ajax.makeRequest('/launches', function(){
+          if(this.status !== 200) return;
+          var jsonString = this.responseText;
+          watchlistMissions = JSON.parse(jsonString);
+
+          watchlistMissions.forEach(function(mission){
+            var liName = document.createElement("li");
+              liName.innerHTML = "Mission name: " + mission.name
+              ul.appendChild(liName);
+            var liDate = document.createElement("li");
+              liDate.innerHTML = "Launch date: " + mission.date
+              ul.appendChild(liDate);
+            var liStrings = document.createElement("li");
+              liStrings.innerHTML = "-------------------"
+              ul.appendChild(liStrings);
+          });
+
         });
+
+
       }
 
 

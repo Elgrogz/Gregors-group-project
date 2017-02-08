@@ -27,15 +27,24 @@ header {
 }
 
 #watchlist-test {
-  width: 15%;
+  float: left;
+  width: 20%;
+  margin: auto;
   margin-top: 5px;
   margin-left: 2px;
+  color: white;
+  font-family: 'Cabin Sketch', cursive;  font-size: 15px;
+}
+
+#watchlist-test p {
+  font-family: 'Barrio', cursive;
 }
 
 #map {
+  float: right;
   margin: auto;
   margin-top: 5px;
-  width: 80%;
+  width: 70%;
   height: 550px;
 }
 
@@ -66,6 +75,34 @@ td {
 }
 
 #map{
-  border: 5px solid #0000e6
+  border: 5px solid #3385ff;
   font-size: 1.5em;
+}
+
+#watchlist-button {
+  background: #3385ff;
+  background-image: -webkit-linear-gradient(top, #3385ff, #3385ff);
+  background-image: -moz-linear-gradient(top, #3385ff, #3385ff);
+  background-image: -ms-linear-gradient(top, #3385ff, #3385ff);
+  background-image: -o-linear-gradient(top, #3385ff, #3385ff);
+  background-image: linear-gradient(to bottom, #3385ff, #3385ff);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 1px 1px 3px #f7ff0f;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#watchlist-button:hover {
+  background: #3385ff;
+  background-image: -webkit-linear-gradient(top, #3385ff, #0000f5);
+  background-image: -moz-linear-gradient(top, #3385ff, #0000f5);
+  background-image: -ms-linear-gradient(top, #3385ff, #0000f5);
+  background-image: -o-linear-gradient(top, #3385ff, #0000f5);
+  background-image: linear-gradient(to bottom, #3385ff, #0000f5);
+  text-decoration: none;
 }
