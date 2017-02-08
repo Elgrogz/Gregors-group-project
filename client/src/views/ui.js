@@ -9,12 +9,17 @@ var UI = function(){
   this.map = this.renderMap();
   this.countDown = new CountDown(nextDate);
   this.launches = new Launches(this.map);
+
   this.initializeClock(this.countDown);
+
   var watchlistButton = document.querySelector("#watchlist-button");
   watchlistButton.style.visibility = 'hidden';
   watchlistButton.onclick = this.addToWatchlist.bind(this);
 
   this.listMissionsFromWatchlist();
+
+  var countdownButton = document.querySelector('#go-to-next-launch');
+  countdownButton.onclick = this.moveMapToNextLaunch.bind(this);
 }
 
 
@@ -55,6 +60,12 @@ UI.prototype = {
       row.appendChild(secondsCol);
       tBody.appendChild(row);
       
+      },
+
+      moveMapToNextLaunch: function(){
+        var coords = {lat: parseFloat(localStorage.getItem('nextMissionLat')), lng: parseFloat(localStorage.getItem('nextMissionLng'))};
+        console.log(coords.lat);
+        this.map.centreMap(coords, 8);
       },
 
       addToWatchlist: function(){
