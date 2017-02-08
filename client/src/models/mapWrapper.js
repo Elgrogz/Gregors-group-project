@@ -17,7 +17,7 @@ var MapWrapper = function (container, coords, zoom) {
     streetViewControlOptions: {
       position: google.maps.ControlPosition.LEFT_TOP
     }
-  })
+  });
 }
 
 
@@ -73,7 +73,8 @@ MapWrapper.prototype ={
   centreMap: function (coords, zoom){
       this.googleMap.setCenter(coords);
       this.googleMap.setZoom(zoom);
-  }
+  },
+
 }
 
 module.exports = MapWrapper;
